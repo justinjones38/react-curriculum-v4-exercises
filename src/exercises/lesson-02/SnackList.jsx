@@ -5,7 +5,7 @@ export default function SnackList() {
       rank: 5,
     },
     {
-      name: 'Cake',
+      name: 'Vanilla Cake',
       rank: 4,
     },
     {
