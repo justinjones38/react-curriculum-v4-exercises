@@ -22,7 +22,9 @@ export default function SnackList() {
     },
   ];
 
-  const orderedSnackRankings = snackRankings.toSorted((a, b) => a - b);
+  const orderedSnackRankings = snackRankings.toSorted(
+    (itemA, itemB) => itemA.rank - itemB.rank
+  );
   return (
     <ol className="snack-list">
       {orderedSnackRankings.map((snack) => (
