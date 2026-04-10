@@ -13,7 +13,7 @@ export default function SnackList() {
       rank: 3,
     },
     {
-      name: 'Fris',
+      name: 'Fries',
       rank: 2,
     },
     {
