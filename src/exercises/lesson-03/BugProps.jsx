@@ -11,12 +11,13 @@
 
   Use the commented "Explanation" section at the bottom of this lesson's components.
 */
+import { useState } from 'react';
 
 export default function BugProps({ name = 'friend' }) {
-  let message = 'Hello, ' + name;
+  const [message, setMessage] = useState('Hello, ' + name);
 
   function handleChange() {
-    message = 'Hi, ' + name + '!';
+    setMessage('Hi, ' + name + '!');
   }
 
   return (
@@ -28,4 +29,5 @@ export default function BugProps({ name = 'friend' }) {
 }
 
 // Explanation:
-// (Write your explanation here)
+// Saved the message to state, so when the button is clicked. It re-renders
+// with the updated message.
