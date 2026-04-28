@@ -7,11 +7,11 @@ export default function BugStrictMode() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
+    const timer = setInterval(() => {
       setCount((c) => c + 1);
     }, 1000);
+    return () => clearInterval(timer);
   }, []);
-
   return (
     <div>
       <h2>StrictMode Timer Bug</h2>
@@ -21,3 +21,6 @@ export default function BugStrictMode() {
 }
 
 // Write your explanation of how StrictMode helps us catch this bug
+
+// Strict Mode mounts the components, unmounts, and re-mounts which causes 2 timers and leads
+// to it counting by 2.

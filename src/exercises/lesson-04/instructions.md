@@ -59,20 +59,20 @@ You will complete five exercise files in the `src/exercises/lesson-04/` folder:
 ## Assessment Criteria
 
 - **Exercise #1:**
-  - [ ] `useEffect` includes a cleanup function
-  - [ ] The number increments by one in the UI
+  - [x] `useEffect` includes a cleanup function
+  - [x] The number increments by one in the UI
 - **Exercise #2**
-  - [ ] Helper function is refactored to use appropriate hook to manage `clickCount`
-  - [ ] The Clicks's counter in the button increments
+  - [x] Helper function is refactored to use appropriate hook to manage `clickCount`
+  - [x] The Clicks's counter in the button increments
 - **Exercise #3**
-  - [ ] Clicking the inner button results in only one alert: "Button Clicked ✅"
-  - [ ] Clicking outside the button but inside the box with the red outline still alerts "RED BOX CLICKED ❌ Don't show me!"
+  - [x] Clicking the inner button results in only one alert: "Button Clicked ✅"
+  - [x] Clicking outside the button but inside the box with the red outline still alerts "RED BOX CLICKED ❌ Don't show me!"
 - **Exercise #4**
-  - [ ] After the "Focus Input" button is clicked the user can type into the input field without having to select it.
+  - [x] After the "Focus Input" button is clicked the user can type into the input field without having to select it.
 - **Exercise #5**
-  - [ ] state is managed in Parent
-  - [ ] button in Child updates the counter using helper function in Parent
-  - [ ] The "Increment Counter" button results in the counter incrementing
+  - [x] state is managed in Parent
+  - [x] button in Child updates the counter using helper function in Parent
+  - [x] The "Increment Counter" button results in the counter incrementing
 
 ---
 
