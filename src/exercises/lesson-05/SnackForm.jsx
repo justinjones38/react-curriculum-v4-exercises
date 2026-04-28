@@ -7,6 +7,20 @@ export default function SnackForm({
   updateSnack,
   className,
 }) {
+  const [name, setName] = useState('');
+  const [rating, setRating] = useState('');
+  const [touched, setTouched] = useState({ name: false, rating: false });
+
+  useEffect(() => {
+    if (editingSnack) {
+      setName((prevName) => prevName);
+      setRating((prevRating) => prevRating);
+    } else {
+      setName('');
+      setRating('');
+    }
+    setTouched({});
+  }, [editingSnack]);
   const isEditing = Boolean(editingSnack);
 
   function handleSubmit(e) {
@@ -37,7 +51,7 @@ export default function SnackForm({
         <input
           type="text"
           name="name"
-          defaultValue={isEditing ? editingSnack.name : ''}
+          value={isEditing ? editingSnack.name : ''}
           required
           className={styles['field-input']}
           placeholder="Enter snack name"
@@ -49,7 +63,7 @@ export default function SnackForm({
         <input
           type="number"
           name="rating"
-          defaultValue={isEditing ? editingSnack.rating : ''}
+          value={isEditing ? editingSnack.rating : ''}
           required
           min="1"
           max="5"

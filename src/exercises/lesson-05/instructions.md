@@ -29,13 +29,13 @@ First, you'll convert the uncontrolled form to use React state management instea
 
 ### Step 1: Create State Variables
 
-- [ ] Add `name` state using `useState("")` for the snack name input
-- [ ] Add `rating` state using `useState("")` for the rating input
-- [ ] Add `touched` state using `useState({ name: false, rating: false })` to track which fields the user has interacted with (prevents showing errors before user tries to use a field)
+- [x] Add `name` state using `useState("")` for the snack name input
+- [x] Add `rating` state using `useState("")` for the rating input
+- [x] Add `touched` state using `useState({ name: false, rating: false })` to track which fields the user has interacted with (prevents showing errors before user tries to use a field)
 
 ### Step 2: Add Form Population Effect
 
-- [ ] Create a `useEffect` that runs when `editingSnack` changes
+- [x] Create a `useEffect` that runs when `editingSnack` changes
 - [ ] If editing, populate the form fields with the snack's current values
 - [ ] If not editing, reset the form fields to empty values
 - [ ] Reset the `touched` state when switching between add/edit modes
