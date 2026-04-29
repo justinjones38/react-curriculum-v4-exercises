@@ -36,16 +36,16 @@ First, you'll convert the uncontrolled form to use React state management instea
 ### Step 2: Add Form Population Effect
 
 - [x] Create a `useEffect` that runs when `editingSnack` changes
-- [ ] If editing, populate the form fields with the snack's current values
-- [ ] If not editing, reset the form fields to empty values
-- [ ] Reset the `touched` state when switching between add/edit modes
+- [x] If editing, populate the form fields with the snack's current values
+- [x] If not editing, reset the form fields to empty values
+- [x] Reset the `touched` state when switching between add/edit modes
 
 ### Step 3: Convert Inputs to Controlled
 
-- [ ] Replace `defaultValue` with `value` prop for both inputs
-- [ ] Connect each input's `value` to its respective state variable
-- [ ] Add `onChange` handlers for both inputs that update the corresponding state variable
-- [ ] Add `onFocus` handlers for both inputs that mark the field as touched when user clicks/focuses on it:
+- [x] Replace `defaultValue` with `value` prop for both inputs
+- [x] Connect each input's `value` to its respective state variable
+- [x] Add `onChange` handlers for both inputs that update the corresponding state variable
+- [x] Add `onFocus` handlers for both inputs that mark the field as touched when user clicks/focuses on it:
   - For name: `setTouched(prev => ({ ...prev, name: true }))`
   - For rating: `setTouched(prev => ({ ...prev, rating: true }))`
 
@@ -55,23 +55,23 @@ Next, you'll add validation to provide immediate feedback to users.
 
 ### Step 1: Allow React to Manage Validation
 
-- [ ] Remove the `required` attribute from the input elements
+- [x] Remove the `required` attribute from the input elements
 
 ### Step 2: Create Validation Functions
 
-- [ ] Create `validateName()` function that returns `true` if name is not empty after trimming
-- [ ] Create `validateRating()` function that returns `true` if rating is selected (not empty)
-- [ ] Create `getNameError()` function that returns error message if name is invalid AND touched
+- [x] Create `validateName()` function that returns `true` if name is not empty after trimming
+- [x] Create `validateRating()` function that returns `true` if rating is selected (not empty)
+- [x] Create `getNameError()` function that returns error message if name is invalid AND touched
   - Example: `"Snack name is required"`
-- [ ] Create `getRatingError()` function that returns error message if rating is invalid AND touched
+- [x] Create `getRatingError()` function that returns error message if rating is invalid AND touched
   - Example: `"Please select a rating"`
 
 ### Step 3: Display Validation Messages
 
-- [ ] Add error message display below each input field
-- [ ] Show error messages only when the field has been touched AND is invalid
-- [ ] Use the existing CSS error styles: `{errorMessage && <div className={styles.error}>{errorMessage}</div>}`
-- [ ] Test that validation appears only after field interaction
+- [x] Add error message display below each input field
+- [x] Show error messages only when the field has been touched AND is invalid
+- [x] Use the existing CSS error styles: `{errorMessage && <div className={styles.error}>{errorMessage}</div>}`
+- [x] Test that validation appears only after field interaction
 
 ### Validation Requirements
 
@@ -85,11 +85,11 @@ Finally, you'll modify the form submission to work with your controlled inputs a
 
 ### Step 1: Modify handleSubmit Function
 
-- [ ] Remove the `FormData` extraction from `handleSubmit`
-- [ ] Use your state variables (`name` and `rating`) directly
-- [ ] Add validation check before submission - prevent submit if any field is invalid
-- [ ] For non-editing submissions, reset state values instead of using `e.target.reset()`
-- [ ] Mark all fields as touched if user tries to submit invalid form
+- [x] Remove the `FormData` extraction from `handleSubmit`
+- [x] Use your state variables (`name` and `rating`) directly
+- [x] Add validation check before submission - prevent submit if any field is invalid
+- [x] For non-editing submissions, reset state values instead of using `e.target.reset()`
+- [x] Mark all fields as touched if user tries to submit invalid form
 
 ### Expected Behavior After Completion
 
