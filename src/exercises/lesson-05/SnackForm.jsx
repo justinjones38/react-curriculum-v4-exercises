@@ -41,7 +41,7 @@ export default function SnackForm({
     }
   }
 
-  // Arrow function to validate name and rating
+  // Arrow functions to validate name and rating
   const validateName = (name) => name.trim() !== '';
   const validateRating = (rating) => rating !== '';
 
