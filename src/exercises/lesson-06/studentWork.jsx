@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import PrimaryButton from './components/buttons/PrimaryButton';
-import TaskItem from './components/TaskItem';
+import TaskItem from './components/features/TaskItem';
 import { filterTasks } from './utils/utils';
 import useTimeout from './hooks/useTimeout';
 
