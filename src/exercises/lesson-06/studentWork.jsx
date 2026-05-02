@@ -1,4 +1,7 @@
 import { useEffect, useState } from 'react';
+import PrimaryButton from './components/buttons/PrimaryButton';
+import TaskItem from './components/TaskItem';
+import { filterTasks } from './utils/utils';
 
 export default function StudentWork() {
   const [tasks, setTasks] = useState([]);
@@ -20,13 +23,7 @@ export default function StudentWork() {
   }, []);
 
   // #2: Filtering logic inside component
-  let visibleTasks = tasks;
-  if (filter === 'completed') {
-    visibleTasks = tasks.filter((task) => task.completed);
-  }
-  if (filter === 'pending') {
-    visibleTasks = tasks.filter((task) => !task.completed);
-  }
+  let visibleTasks = filterTasks(tasks, filter);
 
   if (loading) {
     return <p>Loading tasks...</p>;
@@ -39,18 +36,20 @@ export default function StudentWork() {
 
       {/* #4: Repeated button JSX */}
       <div>
-        <button onClick={() => setFilter('all')}>All</button>
-        <button onClick={() => setFilter('completed')}>Completed</button>
-        <button onClick={() => setFilter('pending')}>Pending</button>
+        <PrimaryButton onClick={() => setFilter('all')}>All</PrimaryButton>
+        <PrimaryButton onClick={() => setFilter('completed')}>
+          Completed
+        </PrimaryButton>
+        <PrimaryButton onClick={() => setFilter('pending')}>
+          Pending
+        </PrimaryButton>
         <p>Current filter: {filter}</p>
       </div>
 
       {/* #5: Inline list rendering */}
       <ul>
         {visibleTasks.map((task) => (
-          <li key={task.id}>
-            {task.title} {task.completed ? '✅' : '⏳'}
-          </li>
+          <TaskItem key={task.id} task={task} />
         ))}
       </ul>
     </div>
