@@ -37,7 +37,7 @@ export function getPosts() {
       try {
         const res = await fetch(`${url}?_limit=10`);
         if (!res.ok) {
-          throw new Error('Response not found');
+          throw new Error('Response data not found');
         }
         const resJson = await res.json();
         setData(resJson);
