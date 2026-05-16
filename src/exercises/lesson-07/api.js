@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 const POSTS_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
 
 /**
@@ -26,31 +24,12 @@ const POSTS_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
  */
 export function getPosts() {
   console.log('[getPosts]: fetching list of posts');
+
+  // TODO: use this `url` const to fetch the list of posts
+  // and return some JSON data.
+  // You may delete this comment once you've finished the implementation.
+  // eslint-disable-next-line no-unused-vars
   const url = POSTS_ENDPOINT;
-
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(`${url}?_limit=10`);
-        if (!res.ok) {
-          throw new Error('Response data not found');
-        }
-        const resJson = await res.json();
-        setData(resJson);
-      } catch (err) {
-        setError(true);
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-  return { data, loading, error };
 }
 
 /**
@@ -60,24 +39,16 @@ export function getPosts() {
  * - title
  * - body
  */
-export async function getSinglePost(postId) {
+export function getSinglePost(postId) {
   if (!postId) {
     throw new Error('[getSinglePost]: postId parameter is required!');
   }
 
   console.log('[getSinglePost]: fetching post with id:', postId);
 
+  // TODO: use this `url` const to fetch the single post
+  // and return some JSON data.
+  // You may delete this comment once you've finished the implementation.
+  // eslint-disable-next-line no-unused-vars
   const url = `${POSTS_ENDPOINT}${postId}`;
-
-  try {
-    const res = await fetch(url);
-    if (!res.ok) {
-      throw new Error('error received');
-    }
-    const resJson = await res.json();
-
-    return resJson;
-  } catch (error) {
-    return;
-  }
 }
