@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 const POSTS_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
 
 /**
@@ -24,12 +26,31 @@ const POSTS_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
  */
 export function getPosts() {
   console.log('[getPosts]: fetching list of posts');
-
-  // TODO: use this `url` const to fetch the list of posts
-  // and return some JSON data.
-  // You may delete this comment once you've finished the implementation.
-  // eslint-disable-next-line no-unused-vars
   const url = POSTS_ENDPOINT;
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`${url}?_limit=10`);
+        console.log(res);
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        const resJson = await res.json();
+        console.log(resJson);
+        setData(resJson);
+      } catch (error) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+  return { data, loading, error };
 }
 
 /**
