@@ -6,6 +6,7 @@ export default function FetchOnClick() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
   const randomNum = Math.ceil(Math.random() * 100);
 
   const handleChange = async (num) => {
