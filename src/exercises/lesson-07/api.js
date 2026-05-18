@@ -35,12 +35,10 @@ export function getPosts() {
     const fetchData = async () => {
       try {
         const res = await fetch(`${url}?_limit=10`);
-        console.log(res);
         if (!res.ok) {
           throw new Error(res.status);
         }
         const resJson = await res.json();
-        console.log(resJson);
         setData(resJson);
       } catch (error) {
         setError(true);
@@ -68,7 +66,6 @@ export async function getSinglePost(postId) {
   console.log('[getSinglePost]: fetching post with id:', postId);
 
   const url = `${POSTS_ENDPOINT}${postId}`;
-  console.log('rin');
 
   try {
     const res = await fetch(url);

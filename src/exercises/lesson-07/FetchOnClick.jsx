@@ -14,6 +14,9 @@ export default function FetchOnClick() {
     setLoading(true);
     try {
       const apiData = await getSinglePost(num);
+      if (!apiData || Object.keys(apiData)) {
+        throw new Error('Cannot fetch data');
+      }
       setData(apiData);
     } catch (error) {
       setError(true);
