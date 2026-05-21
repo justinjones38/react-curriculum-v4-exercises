@@ -15,7 +15,7 @@ function BookList({ books, sortBy, favorites, onToggleFavorite }) {
   const sortedBooks = useMemo(
     () =>
       books.toSorted((a, b) => {
-        console.log('run');
+        console.log('ran');
         switch (sortBy) {
           case 'title':
             return a.title.localeCompare(b.title);
@@ -30,11 +30,8 @@ function BookList({ books, sortBy, favorites, onToggleFavorite }) {
           default:
             return 0;
         }
-        // If the length of the books array changes (which means books) or sortBy changes, then it updates
-        // just passing the books array would not work since it is not a primitive value and its reference
-        // always changes
       }),
-    [books.length, sortBy]
+    [sortBy, books]
   );
 
   return (
