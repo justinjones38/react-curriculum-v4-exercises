@@ -36,5 +36,4 @@ const BookCard = memo(function BookCard({
     </div>
   );
 });
-
 export default BookCard;
