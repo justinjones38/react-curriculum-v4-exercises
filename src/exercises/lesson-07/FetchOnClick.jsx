@@ -3,7 +3,7 @@ import './Lesson07Styles.css';
 import { getSinglePost } from './api';
 
 export default function FetchOnClick() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -14,9 +14,6 @@ export default function FetchOnClick() {
     setLoading(true);
     try {
       const apiData = await getSinglePost(num);
-      if (!apiData || Object.keys(apiData)) {
-        throw new Error('Cannot fetch data');
-      }
       setData(apiData);
     } catch (error) {
       setError(true);
@@ -25,32 +22,22 @@ export default function FetchOnClick() {
     }
   };
 
-  if (!data || Object.keys(data) === 0) {
-    return;
-  }
-
-  console.log(data);
-
   return (
     <div className="root">
       <h1 className="heading">Fetch single post on click</h1>
       <button type="button" onClick={() => handleChange(randomNum)}>
         Get post
       </button>
-      {loading ? (
-        <h2>Loading </h2>
-      ) : (
-        <div className="content">
-          {error ? (
-            <h2>Cannot fetch data</h2>
-          ) : (
-            <div>
-              <h2>{data.title}</h2>
-              <p>{data.body}</p>
-            </div>
-          )}
-        </div>
-      )}
+      {loading ? <h2>Loading...</h2> : null}
+      <div className="content">
+        {error ? <h2>Cannot fetch data</h2> : null}
+        {!error && !loading && data ? (
+          <div>
+            <h2>{data.title}</h2>
+            <p>{data.body}</p>
+          </div>
+        ) : null}
+      </div>
     </div>
   );
 }

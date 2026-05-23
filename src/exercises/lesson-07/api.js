@@ -72,8 +72,7 @@ export async function getSinglePost(postId) {
     if (!res.ok) {
       throw new Error(res.status);
     }
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (error) {
     return;
   }
