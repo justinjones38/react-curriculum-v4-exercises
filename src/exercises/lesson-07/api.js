@@ -24,7 +24,7 @@ const POSTS_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
  * - title
  * - body
  */
-export function getPosts() {
+export function usePosts() {
   console.log('[getPosts]: fetching list of posts');
   const url = POSTS_ENDPOINT;
   const [data, setData] = useState([]);

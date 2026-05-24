@@ -1,8 +1,8 @@
-import { getPosts } from './api';
+import { usePosts } from './api';
 import './Lesson07Styles.css';
 
 export default function FetchOnRender() {
-  const { data, error, loading } = getPosts();
+  const { data, error, loading } = usePosts();
   console.log(data);
   return (
     <div className="root">
