@@ -24,7 +24,7 @@ const POSTS_ENDPOINT = 'https://jsonplaceholder.typicode.com/posts/';
  * - title
  * - body
  */
-export function getPosts() {
+export function usePosts() {
   console.log('[getPosts]: fetching list of posts');
   const url = POSTS_ENDPOINT;
   const [data, setData] = useState([]);
@@ -72,8 +72,7 @@ export async function getSinglePost(postId) {
     if (!res.ok) {
       throw new Error(res.status);
     }
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (error) {
     return;
   }
