@@ -208,6 +208,10 @@
   background: #c82333;
 }
 
+.delete-btn:disabled {
+  background-color: #dc354662;
+}
+
 .question-content h3 {
   color: #333;
   margin: 0 0 15px 0;
