@@ -208,10 +208,20 @@
   background: #c82333;
 }
 
+.delete-btn:disabled {
+  background-color: #dc354662;
+}
+
 .question-content h3 {
   color: #333;
   margin: 0 0 15px 0;
   font-size: 1.3rem;
+}
+
+.new-input-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* Options Section */
@@ -646,6 +656,28 @@
   color: white;
 }
 
+.add-option {
+  font-size: 1.4rem;
+  width: 100%;
+  display: block;
+  background-color: #218838;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  margin-bottom: 0.75em;
+}
+
+.new-input-btns {
+  display: flex;
+  margin-top: 1em;
+  gap: 1em;
+}
+
+.edit-btn-options {
+  display: flex;
+  gap: 1em;
+  margin-left: 0.5em;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .student-work {

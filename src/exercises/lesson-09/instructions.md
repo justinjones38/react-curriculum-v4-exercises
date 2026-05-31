@@ -175,28 +175,28 @@ case 'DELETE_OPTION_FROM_QUESTION':
 
 ### Functionality (60%)
 
-- [ ] `UPDATE_QUESTION_TEXT` action correctly updates question text
-- [ ] `DELETE_QUESTION` action removes questions from array
-- [ ] `ADD_OPTION_TO_QUESTION` adds new options to multiple-choice questions
-- [ ] `UPDATE_OPTION_TEXT` correctly updates existing option text
-- [ ] `DELETE_OPTION_FROM_QUESTION` removes options while maintaining minimum of 2
-- [ ] Edit UI appears/hides correctly based on editing state
-- [ ] Delete confirmation prevents accidental deletions
-- [ ] All existing MVP features continue working
+- [x] `UPDATE_QUESTION_TEXT` action correctly updates question text
+- [x] `DELETE_QUESTION` action removes questions from array
+- [x] `ADD_OPTION_TO_QUESTION` adds new options to multiple-choice questions
+- [x] `UPDATE_OPTION_TEXT` correctly updates existing option text
+- [x] `DELETE_OPTION_FROM_QUESTION` removes options while maintaining minimum of 2
+- [x] Edit UI appears/hides correctly based on editing state
+- [x] Delete confirmation prevents accidental deletions
+- [x] All existing MVP features continue working
 
 ### Code Quality (25%)
 
-- [ ] New reducer actions follow existing patterns (immutable updates)
-- [ ] Components use existing `useContext` patterns consistently
-- [ ] Code is clean and follows established naming conventions
-- [ ] No prop drilling introduced
+- [x] New reducer actions follow existing patterns (immutable updates)
+- [x] Components use existing `useContext` patterns consistently
+- [x] Code is clean and follows established naming conventions
+- [x] No prop drilling introduced
 
 ### User Experience (15%)
 
-- [ ] Edit form pre-fills with current question text
-- [ ] Clear visual indicators for edit/cancel states
-- [ ] Confirmation dialog for destructive delete action
-- [ ] Smooth interaction flow without jarring state changes
+- [x] Edit form pre-fills with current question text
+- [x] Clear visual indicators for edit/cancel states
+- [x] Confirmation dialog for destructive delete action
+- [x] Smooth interaction flow without jarring state changes
 
 ## Reminders
 
