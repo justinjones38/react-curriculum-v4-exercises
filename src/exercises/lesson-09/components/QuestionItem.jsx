@@ -83,11 +83,16 @@ export function QuestionItem({ question }) {
   const deleteOption = (index) => {
     // Prevents from the edit option dropping to the next option
     // if a user is deleting a text and editing another option simulatenously
-    setAnswerText({});
-    dispatch({
-      type: 'DELETE_OPTION_FROM_QUESTION',
-      payload: { id: question.id, optionIndex: index },
-    });
+    const prompt = window.confirm(
+      'Are you sure that you want to delete the option?'
+    );
+    if (prompt) {
+      setAnswerText({});
+      dispatch({
+        type: 'DELETE_OPTION_FROM_QUESTION',
+        payload: { id: question.id, optionIndex: index },
+      });
+    }
   };
 
   // Adds a new input to the options list
