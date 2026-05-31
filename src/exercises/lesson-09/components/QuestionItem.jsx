@@ -8,8 +8,19 @@ export function QuestionItem({ question }) {
   //HINT: use these with controlled form
   const [workingText, setWorkingText] = useState(question.question);
   const { state, dispatch } = useContext(SurveyContext);
+  // Checks whether question is being edited
   const editingQuestion = state.ui.editingQuestionId === question.id;
-  const [answerText, setAnswerText] = useState({});
+  // Holds state for new answer Text (used for a controlled component)
+  const [answerText, setAnswerText] = useState({
+    option: '',
+    index: null,
+  });
+  // Checks whether the newInput btn was clicked
+  const [newInput, setNewInput] = useState(false);
+
+  // Holds state for the input text that will be added (used for a controlled component)
+  const [inputText, setInputText] = useState('');
+
   // Helper function to convert type to title case
   const formatQuestionType = (type) => {
     return type
@@ -46,7 +57,6 @@ export function QuestionItem({ question }) {
 
   // Choose the option that need to be edited
   const handleEditOptions = (option, index) => {
-    console.log(option, index);
     setAnswerText({ option, index });
   };
 
@@ -63,11 +73,22 @@ export function QuestionItem({ question }) {
     setAnswerText({});
   };
 
+  // Delete Option from Options List
   const deleteOption = (index) => {
     dispatch({
       type: 'DELETE_OPTION_FROM_QUESTION',
       payload: { id: question.id, optionIndex: index },
     });
+  };
+
+  // Adds a new input to the options list
+  const addNewInput = () => {
+    dispatch({
+      type: 'ADD_OPTION_TO_QUESTION',
+      payload: { id: question.id, optionText: inputText },
+    });
+    setInputText('');
+    setNewInput(false);
   };
 
   return (
@@ -141,6 +162,23 @@ export function QuestionItem({ question }) {
                 </button>
               </li>
             ))}
+            <button
+              className={styles.addOption}
+              onClick={() => setNewInput(true)}
+            >
+              +
+            </button>
+            {newInput ? (
+              <div className={styles.newInput}>
+                <input
+                  type="text"
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                />
+                <button onClick={addNewInput}>Submit</button>
+                <button onClick={() => setNewInput(false)}>Cancel</button>
+              </div>
+            ) : null}
           </ul>
         </div>
       )}
