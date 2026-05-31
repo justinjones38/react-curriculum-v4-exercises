@@ -155,10 +155,11 @@ export function surveyReducer(state, action) {
       };
 
     case 'DELETE_OPTION_FROM_QUESTION':
+      console.log(action.payload.id);
       return {
         ...state,
         questions: state.questions.map((q) =>
-          q.id === action.payload.questionId &&
+          q.id === action.payload.id &&
           q.type === QUESTION_TYPES.MULTIPLE_CHOICE &&
           q.options.length > 2
             ? {

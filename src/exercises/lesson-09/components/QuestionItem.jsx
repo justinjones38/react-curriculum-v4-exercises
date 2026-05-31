@@ -50,6 +50,7 @@ export function QuestionItem({ question }) {
     setAnswerText({ option, index });
   };
 
+  // Sends the option to dispatch to be updated
   const editOptionText = () => {
     dispatch({
       type: 'UPDATE_OPTION_TEXT',
@@ -60,6 +61,13 @@ export function QuestionItem({ question }) {
       },
     });
     setAnswerText({});
+  };
+
+  const deleteOption = (index) => {
+    dispatch({
+      type: 'DELETE_OPTION_FROM_QUESTION',
+      payload: { id: question.id, optionIndex: index },
+    });
   };
 
   return (
@@ -125,6 +133,12 @@ export function QuestionItem({ question }) {
                 ) : (
                   <button onClick={editOptionText}> Save </button>
                 )}
+                <button
+                  disabled={question.options.length < 3}
+                  onClick={() => deleteOption(index)}
+                >
+                  Delete
+                </button>
               </li>
             ))}
           </ul>
