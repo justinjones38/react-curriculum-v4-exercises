@@ -95,7 +95,6 @@ export function surveyReducer(state, action) {
     // ===== STUDENT IMPLEMENTATION TASKS =====
 
     case 'UPDATE_QUESTION_TEXT':
-      console.log(state);
       return {
         ...state,
         ui: {
@@ -136,7 +135,6 @@ export function surveyReducer(state, action) {
       };
 
     case 'UPDATE_OPTION_TEXT':
-      console.log(action);
       return {
         ...state,
         questions: state.questions.map((q) =>
@@ -155,7 +153,6 @@ export function surveyReducer(state, action) {
       };
 
     case 'DELETE_OPTION_FROM_QUESTION':
-      console.log(action.payload.id);
       return {
         ...state,
         questions: state.questions.map((q) =>

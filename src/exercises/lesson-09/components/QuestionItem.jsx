@@ -42,7 +42,6 @@ export function QuestionItem({ question }) {
     dispatch({ type: 'SET_EDITING_QUESTION', payload: { id: null } });
   };
   const handleSave = () => {
-    console.log('TODO: Implement save functionality');
     // Hint: Use UPDATE_QUESTION_TEXT action with workingText
     dispatch({
       type: 'UPDATE_QUESTION_TEXT',
@@ -51,7 +50,6 @@ export function QuestionItem({ question }) {
   };
 
   const handleDelete = () => {
-    console.log('TODO: Implement delete functionality');
     const prompt = window.confirm(
       'Are you sure you want to delete this question?'
     );
