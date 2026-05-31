@@ -646,6 +646,28 @@
   color: white;
 }
 
+.add-option {
+  font-size: 1.4rem;
+  width: 100%;
+  display: block;
+  background-color: #218838;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  margin-bottom: 0.75em;
+}
+
+.new-input-btns {
+  display: flex;
+  margin-top: 1em;
+  gap: 1em;
+}
+
+.edit-btn-options {
+  display: flex;
+  gap: 1em;
+  margin-left: 0.5em;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .student-work {

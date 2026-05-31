@@ -153,23 +153,35 @@ export function QuestionItem({ question }) {
                     }
                   />
                 ) : null}
-                {index !== answerText.index ? (
-                  <button onClick={() => handleEditOptions(option, index)}>
-                    Edit Option
+                <div className={styles['edit-btn-options']}>
+                  {index !== answerText.index ? (
+                    <button
+                      onClick={() => handleEditOptions(option, index)}
+                      className={styles['edit-btn']}
+                    >
+                      Edit Option
+                    </button>
+                  ) : (
+                    <button
+                      onClick={editOptionText}
+                      className={styles['save-btn']}
+                    >
+                      {' '}
+                      Save{' '}
+                    </button>
+                  )}
+                  <button
+                    disabled={question.options.length < 3}
+                    onClick={() => deleteOption(index)}
+                    className={styles['delete-btn']}
+                  >
+                    Delete
                   </button>
-                ) : (
-                  <button onClick={editOptionText}> Save </button>
-                )}
-                <button
-                  disabled={question.options.length < 3}
-                  onClick={() => deleteOption(index)}
-                >
-                  Delete
-                </button>
+                </div>
               </li>
             ))}
             <button
-              className={styles.addOption}
+              className={styles['add-option']}
               onClick={() => setNewInput(true)}
             >
               +
@@ -180,9 +192,19 @@ export function QuestionItem({ question }) {
                   type="text"
                   value={inputText}
                   onChange={(e) => setInputText(e.target.value)}
+                  placeholder="Enter new option"
                 />
-                <button onClick={addNewInput}>Submit</button>
-                <button onClick={() => setNewInput(false)}>Cancel</button>
+                <div className={styles['new-input-btns']}>
+                  <button onClick={addNewInput} className={styles['save-btn']}>
+                    Submit
+                  </button>
+                  <button
+                    onClick={() => setNewInput(false)}
+                    className={styles['delete-btn']}
+                  >
+                    Cancel
+                  </button>
+                </div>
               </div>
             ) : null}
           </ul>
