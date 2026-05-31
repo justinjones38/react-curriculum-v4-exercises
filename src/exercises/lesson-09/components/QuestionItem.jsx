@@ -21,9 +21,12 @@ export function QuestionItem({ question }) {
   const handleEdit = () => {
     // Hint: Use SET_EDITING_QUESTION action
     dispatch({ type: 'SET_EDITING_QUESTION', payload: question });
-    state.ui.editingQuestionId = null;
   };
 
+  const handleCancel = () => {
+    setWorkingText(question.question);
+    dispatch({ type: 'CANCEL_QUESTION' });
+  };
   // TODO: Students will add save functionality here
   const handleSave = () => {
     console.log('TODO: Implement save functionality');
@@ -60,7 +63,10 @@ export function QuestionItem({ question }) {
               Save
             </button>
           ) : null}
-          <button className={styles['edit-btn']} onClick={handleEdit}>
+          <button
+            className={styles['edit-btn']}
+            onClick={!editingQuestion ? handleEdit : handleCancel}
+          >
             {editingQuestion ? 'Cancel' : 'Edit'}
           </button>
           <button className={styles['delete-btn']} onClick={handleDelete}>

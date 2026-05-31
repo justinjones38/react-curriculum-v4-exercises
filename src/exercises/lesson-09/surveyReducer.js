@@ -96,7 +96,6 @@ export function surveyReducer(state, action) {
     // ===== STUDENT IMPLEMENTATION TASKS =====
 
     case 'UPDATE_QUESTION_TEXT':
-      console.log(state);
       return {
         ...state,
         ui: {
@@ -169,6 +168,14 @@ export function surveyReducer(state, action) {
               }
             : q
         ),
+      };
+
+    case 'CANCEL_QUESTION':
+      return {
+        ...state,
+        ui: {
+          editingQuestionId: null, // Clear editing when text is updated
+        },
       };
 
     default:
