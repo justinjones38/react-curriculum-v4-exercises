@@ -8,13 +8,16 @@ export function QuestionItem({ question }) {
   //HINT: use these with controlled form
   const [workingText, setWorkingText] = useState(question.question);
   const { state, dispatch } = useContext(SurveyContext);
+
   // Checks whether question is being edited
   const editingQuestion = state.ui.editingQuestionId === question.id;
+
   // Holds state for new answer Text (used for a controlled component)
   const [answerText, setAnswerText] = useState({
     option: '',
     index: null,
   });
+
   // Checks whether the newInput btn was clicked
   const [newInput, setNewInput] = useState(false);
 
