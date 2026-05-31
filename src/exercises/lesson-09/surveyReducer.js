@@ -170,14 +170,6 @@ export function surveyReducer(state, action) {
         ),
       };
 
-    case 'CANCEL_QUESTION':
-      return {
-        ...state,
-        ui: {
-          editingQuestionId: null, // Clear editing when text is updated
-        },
-      };
-
     default:
       return state;
   }

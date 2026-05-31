@@ -25,7 +25,7 @@ export function QuestionItem({ question }) {
 
   const handleCancel = () => {
     setWorkingText(question.question);
-    dispatch({ type: 'CANCEL_QUESTION' });
+    dispatch({ type: 'SET_EDITING_QUESTION', payload: { id: null } });
   };
   // TODO: Students will add save functionality here
   const handleSave = () => {
