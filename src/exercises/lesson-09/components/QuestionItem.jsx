@@ -29,7 +29,6 @@ export function QuestionItem({ question }) {
       .join('-');
   };
 
-  // TODO: Students will add edit functionality here
   const handleEdit = () => {
     // Hint: Use SET_EDITING_QUESTION action
     dispatch({ type: 'SET_EDITING_QUESTION', payload: question });
@@ -39,7 +38,6 @@ export function QuestionItem({ question }) {
     setWorkingText(question.question);
     dispatch({ type: 'SET_EDITING_QUESTION', payload: { id: null } });
   };
-  // TODO: Students will add save functionality here
   const handleSave = () => {
     console.log('TODO: Implement save functionality');
     // Hint: Use UPDATE_QUESTION_TEXT action with workingText
@@ -49,7 +47,6 @@ export function QuestionItem({ question }) {
     });
   };
 
-  // TODO: Students will add delete functionality here
   const handleDelete = () => {
     console.log('TODO: Implement delete functionality');
     const prompt = window.confirm(
@@ -58,7 +55,6 @@ export function QuestionItem({ question }) {
     if (prompt) {
       dispatch({ type: 'DELETE_QUESTION', payload: { id: question.id } });
     }
-    // Hint: Show confirmation dialog, then use DELETE_QUESTION action
   };
 
   // Choose the option that need to be edited
@@ -81,6 +77,9 @@ export function QuestionItem({ question }) {
 
   // Delete Option from Options List
   const deleteOption = (index) => {
+    // Prevents from the edit option dropping to the next option
+    // if a user is deleting a text and editing another option simulatenously
+    setAnswerText({});
     dispatch({
       type: 'DELETE_OPTION_FROM_QUESTION',
       payload: { id: question.id, optionIndex: index },
@@ -124,7 +123,7 @@ export function QuestionItem({ question }) {
             {editingQuestion ? 'Cancel' : 'Edit'}
           </button>
           <button className={styles['delete-btn']} onClick={handleDelete}>
-            Delete (TODO)
+            Delete
           </button>
         </div>
       </div>
@@ -187,7 +186,7 @@ export function QuestionItem({ question }) {
               +
             </button>
             {newInput ? (
-              <div className={styles.newInput}>
+              <div className={styles['new-input-container']}>
                 <input
                   type="text"
                   value={inputText}

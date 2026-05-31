@@ -218,6 +218,12 @@
   font-size: 1.3rem;
 }
 
+.new-input-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 /* Options Section */
 .options-section {
   margin-top: 20px;
