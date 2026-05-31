@@ -113,7 +113,7 @@ export function surveyReducer(state, action) {
       return {
         ...state,
         questions: state.questions
-          .filter((q) => q.id !== action.payload.questionId)
+          .filter((q) => q.id !== action.payload.id)
           .map((q, index) => ({ ...q, order: index })),
         ui: {
           ...state.ui,
