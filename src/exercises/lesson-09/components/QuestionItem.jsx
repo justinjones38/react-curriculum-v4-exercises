@@ -64,6 +64,10 @@ export function QuestionItem({ question }) {
 
   // Sends the option to dispatch to be updated
   const editOptionText = () => {
+    if (!answerText.option) {
+      window.alert('Please a valid word');
+      return;
+    }
     dispatch({
       type: 'UPDATE_OPTION_TEXT',
       payload: {
@@ -88,6 +92,10 @@ export function QuestionItem({ question }) {
 
   // Adds a new input to the options list
   const addNewInput = () => {
+    if (!inputText) {
+      window.alert('Please enter a valid input');
+      return;
+    }
     dispatch({
       type: 'ADD_OPTION_TO_QUESTION',
       payload: { id: question.id, optionText: inputText },
