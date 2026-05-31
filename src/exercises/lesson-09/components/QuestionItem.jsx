@@ -9,6 +9,7 @@ export function QuestionItem({ question }) {
   const [workingText, setWorkingText] = useState(question.question);
   const { state, dispatch } = useContext(SurveyContext);
   const editingQuestion = state.ui.editingQuestionId === question.id;
+  const [answerText, setAnswerText] = useState({});
   // Helper function to convert type to title case
   const formatQuestionType = (type) => {
     return type
@@ -41,6 +42,24 @@ export function QuestionItem({ question }) {
   const handleDelete = () => {
     console.log('TODO: Implement delete functionality');
     // Hint: Show confirmation dialog, then use DELETE_QUESTION action
+  };
+
+  // Choose the option that need to be edited
+  const handleEditOptions = (option, index) => {
+    console.log(option, index);
+    setAnswerText({ option, index });
+  };
+
+  const editOptionText = () => {
+    dispatch({
+      type: 'UPDATE_OPTION_TEXT',
+      payload: {
+        newText: answerText.option,
+        id: question.id,
+        optionIndex: answerText.index,
+      },
+    });
+    setAnswerText({});
   };
 
   return (
@@ -87,6 +106,25 @@ export function QuestionItem({ question }) {
             {question.options.map((option, index) => (
               <li key={index} className={styles['option-item']}>
                 <span className={styles['option-text']}>{option}</span>
+                {index === answerText.index ? (
+                  <input
+                    type="text"
+                    value={answerText.option}
+                    onChange={(e) =>
+                      setAnswerText((prev) => ({
+                        ...prev,
+                        option: e.target.value,
+                      }))
+                    }
+                  />
+                ) : null}
+                {index !== answerText.index ? (
+                  <button onClick={() => handleEditOptions(option, index)}>
+                    Edit Option
+                  </button>
+                ) : (
+                  <button onClick={editOptionText}> Save </button>
+                )}
               </li>
             ))}
           </ul>

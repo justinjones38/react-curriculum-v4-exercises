@@ -64,7 +64,6 @@ export function surveyReducer(state, action) {
       };
 
     case 'SET_EDITING_QUESTION':
-      console.log(state, action);
       return {
         ...state,
         ui: {
@@ -96,6 +95,7 @@ export function surveyReducer(state, action) {
     // ===== STUDENT IMPLEMENTATION TASKS =====
 
     case 'UPDATE_QUESTION_TEXT':
+      console.log(state);
       return {
         ...state,
         ui: {
@@ -136,10 +136,11 @@ export function surveyReducer(state, action) {
       };
 
     case 'UPDATE_OPTION_TEXT':
+      console.log(action);
       return {
         ...state,
         questions: state.questions.map((q) =>
-          q.id === action.payload.questionId &&
+          q.id === action.payload.id &&
           q.type === QUESTION_TYPES.MULTIPLE_CHOICE
             ? {
                 ...q,
